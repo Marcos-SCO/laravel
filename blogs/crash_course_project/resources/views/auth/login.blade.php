@@ -4,7 +4,7 @@
 
 <div class="flex justify-center">
     <div class="w-8/12 bg-white p-6 rounded-lg">
-        <form action="{{ route('login') }}" method="post">
+        <form action="{{ route('login') }}" method="POST">
             <!-- CSRF helper -->
             @csrf
 

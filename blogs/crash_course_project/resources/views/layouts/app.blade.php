@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{$title ?? 'Welcome'}}</title>
+    <title>{{ $title ?? 'Welcome' }}</title>
 
     <!-- Css -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -13,14 +13,19 @@
 <body class="bg-gray-200">
     <nav class="p-6 bg-white flex justify-between mb-6">
         <ul class="flex items-center">
-            <li><a href="" class="p-3">Home</a></li>
+            <li><a href="{{ route('home') }}" class="p-3">Home</a></li>
             <li><a href="" class="p-3">Dashboard</a></li>
             <li><a href="" class="p-3">Posts</a></li>
         </ul>
         <ul class="flex items-center">
             @auth
             <li><a href="" class="p-3">Marcos</a></li>
-            <li><a href="" class="p-3">Logout</a></li>
+            <li>
+                <form action="{{ route('logout') }}" method="POST" class="inline">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
             @endauth
 
             @guest
