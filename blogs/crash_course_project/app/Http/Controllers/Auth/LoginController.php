@@ -48,7 +48,11 @@ class LoginController extends Controller
             $customMessages
         );
 
-        Auth::attempt($request->only('email', 'password'));
+        if(!Auth::attempt($request->only('email', 'password'))) {
+            return back()->with('status', 'invalid login details');
+        }
+
+        return redirect()->route('dashboard');
     }
 
     /**
