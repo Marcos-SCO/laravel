@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+    public function __construct()
+    {
+        // If a user has already logged in than redirect, only logout users can see the index or create page
+        $this->middleware(['guest']);
+    }
+
     /**
      * Display a listing of the resource.
      *

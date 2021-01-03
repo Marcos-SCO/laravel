@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['guest']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +53,7 @@ class LoginController extends Controller
             $customMessages
         );
 
-        if(!Auth::attempt($request->only('email', 'password'))) {
+        if (!Auth::attempt($request->only('email', 'password'))) {
             return back()->with('status', 'invalid login details');
         }
 
