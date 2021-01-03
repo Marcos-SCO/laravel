@@ -4,4 +4,4 @@
   composer create-project laravel/laravel .
 
 - Dependencies
-  tailwind: npm i tailwindcss
+  tailwind: npm install tailwindcss@compat
