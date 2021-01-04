@@ -53,7 +53,7 @@ class LoginController extends Controller
             $customMessages
         );
 
-        if (!Auth::attempt($request->only('email', 'password'))) {
+        if (!Auth::attempt($request->only('email', 'password'), $request->remember)) {
             return back()->with('status', 'invalid login details');
         }
 
