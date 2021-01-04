@@ -10,3 +10,5 @@
 - Dependencies
   
   tailwind: npm install tailwindcss@compat
+
+  laravel-debugbar: composer require barryvdh/laravel-debugbar --dev
