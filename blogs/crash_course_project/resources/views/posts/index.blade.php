@@ -30,8 +30,13 @@
             <span class="text-gray-600 text-sm">{{ $post->created_at->diffForHumans() }}</span>
 
             <p class="mb-2">{{ $post->body }}</p>
+
         </div>
         @endforeach
+
+        <!-- Paginating results -->
+        {{ $posts->links() }}
+
         @else
         <p>There are no posts</p>
         @endif
