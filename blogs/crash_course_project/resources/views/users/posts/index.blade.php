@@ -3,8 +3,27 @@
 @section('content')
 
 <div class="flex justify-center">
-    <div class="w-8/12 bg-white p-6 rounded-lg">
-        {{ $user->name }}
+    <div class="w-8/12">
+<div class="p-6">
+    <h1 class="text-2xl font-medium mb-1">{{ $user->name }}</h1>
+    <p>Posted {{ $posts->count() }} {{ Str::plural('post', $posts->count()) }} and received x likes</p>
+</div>
+
+        <div class="bg-white p-6 rounded-lg">
+            @if ($posts->count())
+            @foreach($posts as $post)
+            <!-- Using re-usable component -->
+            <x-post :post="$post" />
+            
+            @endforeach
+            
+            <!-- Paginating results -->
+            {{ $posts->links() }}
+            
+            @else
+            <p>{{ $user->name }} does not have any posts</p>
+            @endif
+        </div>
     </div>
 </div>
 
