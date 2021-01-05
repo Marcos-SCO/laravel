@@ -1,6 +1,7 @@
 # Annotations for commands and dependencies
 
-- Create a Laravel project
+- Create a Laravel project:
+
   composer create-project laravel/laravel
 
 - tinker
@@ -12,3 +13,6 @@
   tailwind: npm install tailwindcss@compat
 
   laravel-debugbar: composer require barryvdh/laravel-debugbar --dev
+
+- Original code from: 
+   https://www.youtube.com/watch?v=MFh0Fd7BsjE  
