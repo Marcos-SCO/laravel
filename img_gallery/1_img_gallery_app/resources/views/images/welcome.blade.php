@@ -15,8 +15,10 @@
                 <div class="card-body">
                     @if(Auth::check())
                     @if($image->user_id == Auth::User()->id)
-                    <form action="">
+                    <form action="{{ route('image.destroy', $image->id) }}" method="post">
                         @csrf
+                        @method('DELETE')
+
                         <input type="submit" value="Delete" class="btn btn-danger">
                     </form>
                     @endif

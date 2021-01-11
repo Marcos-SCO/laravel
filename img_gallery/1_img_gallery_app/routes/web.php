@@ -26,3 +26,4 @@ require __DIR__.'/auth.php';
 
 Route::get('/image', [ImageController::class, 'index'])->name('image.index');
 Route::post('/image', [ImageController::class, 'store'])->name('image.store');
+Route::delete('/image/{id}', [ImageController::class, 'destroy'])->name('image.destroy');

@@ -105,6 +105,11 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $image = Image::find($id);
+        $image->delete();
+
+        Session::flash('success', "Image Deleted");
+
+        return redirect('/image');
     }
 }
