@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ImageController extends Controller
 {
@@ -56,7 +58,9 @@ class ImageController extends Controller
             $post->save();
         }
 
-        return redirect('/');
+        Session::flash('success', "Images Uploaded");
+
+        return redirect('/image');
     }
 
     /**
