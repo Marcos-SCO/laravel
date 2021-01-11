@@ -28,6 +28,11 @@
         <h1 class="text-danger">There is no uploads</h1>
         @endforelse
     </div>
+
+    <div class="row justify-content-center">
+        {{ $images->links() }}
+    </div>
+
 </div>
 
 @endsection
