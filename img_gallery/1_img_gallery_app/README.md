@@ -9,3 +9,4 @@ Original code from: https://www.youtube.com/watch?v=moshDMQTPJ4
   - php artisan breeze:install
     - npm install
     - npm run dev
+   - Breeze Documentation: https://laravel.com/docs/8.x/starter-kits
