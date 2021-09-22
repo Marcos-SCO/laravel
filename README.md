@@ -29,11 +29,18 @@
    - php artisan make:resource { ResourceName }
    - php artisan make:resource { ResourceName }Collection
 
-  
+  - Seeders
+   - seed data
+    - php artisan db:seed
+    - php artisan db:seed --class={ ClassName }Seeder
+
+
 
 - Libraries
+
  - doctrine/dbal
   - composer require doctrine/dbal
-  - Change column type
+  
+  - Change column type with dbal
    - php artisan make:migration change_category_type --table={ tableName }
    - php artisan make:migration change_category_type_in_{ tableName }
