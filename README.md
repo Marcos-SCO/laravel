@@ -1,2 +1,1 @@
-# laravel
-Repositório para projetos despretensiosos com o Framework Laravel
+# Building RESTful Apis in Laravel with Zuzana Kunckova
