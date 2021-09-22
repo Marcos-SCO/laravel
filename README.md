@@ -15,3 +15,16 @@
    - CREATE DATABASE ePetitions character set utf8mb4 collate utf8mb4_unicode_ci;
   - Laravel commands
    - php artisan key: generate
+
+  
+
+- Laravel commands
+  - Make model
+   - php artisan make:model { ModelName } 
+  
+  - Make an API Controller
+   - php artisan make:controller { ControllerName } --api -model={ ModelName }
+
+  - Make resource
+   - php artisan make:resource { ResourceName }
+   - php artisan make:resource { ResourceName }Collection
