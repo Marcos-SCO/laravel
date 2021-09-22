@@ -12,7 +12,7 @@
   - composer
    - composer create-project laravel/laravel ePetitions
   - Mysql
-   - CREATE DATABASE ePetitions character set utf8mb4 collate utf8mb4_unicode_ci;
+   - CREATE DATABASE db_laravel_ePetitions character set utf8mb4 collate utf8mb4_unicode_ci;
   - Laravel commands
    - php artisan key: generate
 
@@ -28,3 +28,12 @@
   - Make resource
    - php artisan make:resource { ResourceName }
    - php artisan make:resource { ResourceName }Collection
+
+  
+
+- Libraries
+ - doctrine/dbal
+  - composer require doctrine/dbal
+  - Change column type
+   - php artisan make:migration change_category_type --table={ tableName }
+   - php artisan make:migration change_category_type_in_{ tableName }
