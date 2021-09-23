@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "668e7485-b186-4cbe-b893-9dcda41c748e",
+		"name": "ePetition_api_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Petitions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE}}",
+					"host": [
+						"{{BASE}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Petition",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Hello\",\r\n    \"description\": \"testando insert\", \r\n    \"category\": \"voluptates voluptates.\",\r\n    \"author\": \"Marcos\",\r\n    \"signees\": 880890\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE}}",
+					"host": [
+						"{{BASE}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Petition",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Hello\",\r\n    \"description\": \"testando insert\", \r\n    \"category\": \"voluptates voluptates.\",\r\n    \"author\": \"Marcos\",\r\n    \"signees\": 880890\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE}}/51",
+					"host": [
+						"{{BASE}}"
+					],
+					"path": [
+						"51"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE petition",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Hello Warudo\",\r\n    \"description\": \"testando insert\", \r\n    \"category\": \"voluptates voluptates.\",\r\n    \"author\": \"Marcos\",\r\n    \"signees\": 880890\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASEAPI}}/petition/51",
+					"host": [
+						"{{BASEAPI}}"
+					],
+					"path": [
+						"petition",
+						"51"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE petition",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Hello Warudo\",\r\n    \"description\": \"testando insert\", \r\n    \"category\": \"voluptates voluptates.\",\r\n    \"author\": \"Marcos\",\r\n    \"signees\": 880890\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE}}/13",
+					"host": [
+						"{{BASE}}"
+					],
+					"path": [
+						"13"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
