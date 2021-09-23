@@ -29,10 +29,15 @@
    - php artisan make:resource { ResourceName }
    - php artisan make:resource { ResourceName }Collection
 
+  - Make multiple commands 
+   - m = migration | f = factory | s = seeder
+  php artisan make:model Author -mfs
+
   - Seeders
    - seed data
     - php artisan db:seed
     - php artisan db:seed --class={ ClassName }Seeder
+
 
 
 - Libraries
