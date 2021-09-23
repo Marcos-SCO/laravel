@@ -35,7 +35,6 @@
     - php artisan db:seed --class={ ClassName }Seeder
 
 
-
 - Libraries
 
  - doctrine/dbal

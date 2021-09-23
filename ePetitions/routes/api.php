@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PetitionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Each route
+// Route::get('/petitions', [PetitionController::class, 'index']); 
+// Route::post('/petitions', [PetitionController::class, 'store']);
+
+// Only needs specific action
+// Route::resource('/petitions', PetitionController::class)->only(['index', 'store']);
+
+// Map all http verbs
+Route::apiResource('/petitions', PetitionController::class);
+
