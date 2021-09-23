@@ -13,7 +13,11 @@ class TestController extends Controller
      */
     public function index()
     {
-        echo "<h1>Welcome to my Warudo!</h1>";
+        return View('sample-view', [
+            'title' => 'Sample view',
+            'name' => 'Online Web',
+            'email' => 'Tech@net.com',
+        ]);
     }
 
     /**
