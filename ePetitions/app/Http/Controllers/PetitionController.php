@@ -6,6 +6,7 @@ use App\Http\Resources\PetitionCollection;
 use App\Http\Resources\PetitionResource;
 use App\Models\Petition;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PetitionController extends Controller
 {
@@ -19,7 +20,10 @@ class PetitionController extends Controller
         $petitions = Petition::all();
 
         // return PetitionResource::collection($petitions);
-        return new PetitionCollection($petitions);
+        $petitionCollection =  new PetitionCollection($petitions);
+
+        return response()->json($petitionCollection, Response::HTTP_OK);
+        // return response()->json($petitionCollection, 200);
     }
 
     /**
@@ -72,6 +76,9 @@ class PetitionController extends Controller
      */
     public function destroy(Petition $petition)
     {
-        //
+        $petition->delete();
+
+        // return response()->json(null, 204);
+        return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 }
