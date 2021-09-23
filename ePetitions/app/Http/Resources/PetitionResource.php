@@ -17,8 +17,11 @@ class PetitionResource extends JsonResource
         // return parent::toArray($request);
         return [
             'id' => $this->id,
-            'title' => $this->title,
+            'title' => ucwords($this->title),
+            'description' => $this->description,
+            'category' => $this->category,
             'author' => $this->author,
+            'signees' => $this->signees,
         ];
     }
 }
