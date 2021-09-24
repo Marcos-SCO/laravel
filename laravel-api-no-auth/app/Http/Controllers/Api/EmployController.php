@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EmployeeRequest;
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class EmployController extends Controller
 {
@@ -15,7 +17,9 @@ class EmployController extends Controller
      */
     public function index()
     {
-        //
+        $employees = Employee::all();
+        
+        return response()->json(['data' => $employees, 'message' => 'Employee create successfully', Response::HTTP_OK]);
     }
 
     /**
@@ -24,9 +28,12 @@ class EmployController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
-        //
+        $input = $request->all();
+        Employee::create($input);
+
+        return response()->json(['message' => 'Employee create successfully', Response::HTTP_CREATED]);
     }
 
     /**
@@ -38,8 +45,8 @@ class EmployController extends Controller
     public function show($id)
     {
         $employee = Employee::find($id);
-
-        return $employee;
+        
+        return response()->json(['data' => $employee, 'message' => 'Employee create successfully', Response::HTTP_OK]);
     }
 
     /**
