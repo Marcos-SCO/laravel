@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StudentStoreRequest;
+use App\Http\Requests\Student\StudentStoreRequest;
+use App\Http\Requests\Student\StudentLoginRequest;
 use App\Http\Resources\StudentResource;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  App\Http\Requests\StudentStoreRequest  $request
+     * @param  App\Http\Requests\Student\StudentStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StudentStoreRequest $request)
@@ -58,9 +59,31 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function login(Request $request)
+    public function login(StudentLoginRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        $student = Student::where('email', '=', $validated['email'])->first();
+
+        if (!isset($student->id)) {
+            return (new StudentResource(['status' => Response::HTTP_NOT_FOUND, 'message' => 'Student not Found']))
+                ->response()
+                ->setStatusCode(Response::HTTP_NOT_FOUND);
+        }
+
+        $passwordCheck = Hash::check($validated['password'], $student->password);
+
+        if (!$passwordCheck) {
+            return (new StudentResource(['status' => Response::HTTP_UNAUTHORIZED, 'message' => 'Incorrect email or password']))
+                ->response()
+                ->setStatusCode(Response::HTTP_UNAUTHORIZED);
+        }
+
+        $token = $student->createToken('auth_token')->plainTextToken;
+
+        return (new StudentResource(['status' => Response::HTTP_ACCEPTED, 'message' => 'Student logged in successfully', 'access_token' => $token]))
+            ->response()
+            ->setStatusCode(Response::HTTP_ACCEPTED);
     }
 
     /**
