@@ -25,9 +25,9 @@ use \App\Http\Controllers\StudentController;
 Route::post('/register', [StudentController::class, 'store']);
 Route::post('/login', [StudentController::class, 'login']);
 
-Route::group(['/middleware' => ['auth:sanctum']], function () {
-    Route::get('/profile', [StudentController::class, 'show']);
-    Route::get('/logout', [StudentController::class, 'destroy']);
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/profile', [StudentController::class, 'profile']);
+    Route::delete('/logout', [StudentController::class, 'destroy']);
     
     // Project
     Route::apiResource('/project',\App\Http\Controllers\ProjectController::class);

@@ -92,9 +92,21 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
+    public function profile()
+    {
+        return (new StudentResource(['status' => Response::HTTP_OK, 'message' => 'Student profile info', 'data' => auth()->user()]))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Student  $student
+     * @return \Illuminate\Http\Response
+     */
     public function show(Student $student)
     {
-        //
     }
 
     /**
@@ -128,6 +140,10 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        auth()->user()->tokens()->delete();
+
+        return (new StudentResource(['status' => Response::HTTP_OK, 'message' => 'Student logout success', 'data' => auth()->user()]))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 }
