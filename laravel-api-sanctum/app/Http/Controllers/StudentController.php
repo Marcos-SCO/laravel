@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentStoreRequest;
+use App\Http\Resources\StudentResource;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -30,10 +34,31 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param  App\Http\Requests\StudentStoreRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StudentStoreRequest $request)
+    {
+        // Retrieve the validated input data...
+        $validated = $request->validated();
+
+        // Hash password
+        $validated['password'] = Hash::make($validated['password']);
+
+        $student = Student::create($validated);
+
+        // return response()->json($validated, Response::HTTP_OK);
+
+        return new StudentResource($validated, Response::HTTP_CREATED);
+    }
+
+    /**
+     * Login.
+     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function login(Request $request)
     {
         //
     }
