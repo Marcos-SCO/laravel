@@ -17,7 +17,15 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $studentId = auth()->user()->id;
+
+        $projects = Project::where('student_id', '=', $studentId)->get();
+
+        return response()->json([
+            'status' => Response::HTTP_OK,
+            'message' => 'Projects',
+            'data' => $projects
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -43,12 +51,14 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show($id)
     {
-        //
+        $studentId = auth()->user()->id;
+        $project = Project::where(['id' => $id, 'student_id' => $studentId])->get();
+
+        return (new ProjectResource($project));
     }
 
     /**
@@ -71,6 +81,15 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $studentId = auth()->user()->id;
+        $sameStudentID = $studentId === $project->student_id;
+
+        if (!$sameStudentID) {
+            return response()->json(['status' => Response::HTTP_UNAUTHORIZED, 'message' => 'Student is not authorized to delete this project'], Response::HTTP_UNAUTHORIZED);
+        }
+
+        if ($project->delete()) {
+            return response()->json(['status' => Response::HTTP_OK, 'message' => 'Project Deleted']);
+        }
     }
 }
