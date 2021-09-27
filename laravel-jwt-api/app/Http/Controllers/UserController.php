@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\UserLoginRequest;
 use App\Http\Requests\User\UserStoreRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -35,11 +36,18 @@ class UserController extends Controller
         return response()->json(['status' => Response::HTTP_CREATED, 'message' => 'User created successfully', 'data' => $user], Response::HTTP_CREATED);
     }
 
-    public function login(Request $request)
+    public function login(UserLoginRequest $request)
     {
-        //
+        $validated = $request->validated();
+        extract($validated);
+
+        $token = auth()->attempt(['email' => $email, 'password' => $password]);
+
+        if (!$token) return response()->json(['status' => Response::HTTP_UNAUTHORIZED, 'message' => 'Invalid credentials'], Response::HTTP_UNAUTHORIZED);
+
+        return response()->json(['status' => Response::HTTP_OK, 'message' => 'Login successfully', 'access_token' => $token], Response::HTTP_OK);
     }
-    
+
     public function profile()
     {
         //
