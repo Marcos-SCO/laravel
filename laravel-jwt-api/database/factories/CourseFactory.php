@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Course;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CourseFactory extends Factory
@@ -22,7 +23,12 @@ class CourseFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => function () {
+                return User::inRandomOrder()->first()->id;
+            },
+            'title' => $this->faker->title(),
+            'description' => $this->faker->text(300),
+            'total_videos' => $this->faker->randomDigitNotZero(3, 50),
         ];
     }
 }
