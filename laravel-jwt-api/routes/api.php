@@ -25,6 +25,7 @@ Route::post('/login', [UserController::class, 'login']);
 
 Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/profile', [UserController::class, 'profile']);
+    Route::put('/update', [UserController::class, 'update']);
     Route::delete('/logout', [UserController::class, 'destroy']);
     
     Route::apiResource('/course', \App\Http\Controllers\CourseController::class);
