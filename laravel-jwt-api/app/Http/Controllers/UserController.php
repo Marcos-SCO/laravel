@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\User\UserStorRequest;
+use App\Http\Requests\User\UserStoreRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -25,7 +25,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserStorRequest $request)
+    public function store(UserStoreRequest $request)
     {
         $validated = $request->validated();
         $validated['password'] = bcrypt($validated['password']);
