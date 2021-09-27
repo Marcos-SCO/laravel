@@ -18,4 +18,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+use \App\Http\Controllers\UserController;
+
+Route::post('/register', [UserController::class, 'store']);
+Route::post('/login', [UserController::class, 'login']);
+
+Route::group(['middleware' => ['api']], function () {
+    Route::get('/profile', [UserController::class, 'profile']);
+    Route::delete('/logout', [UserController::class, 'destroy']);
+    
+    Route::apiResource('/course', \App\Http\Controllers\CourseController::class);
+});
+
+
 // Route::apiResource('/register', \App\Http\Controllers\StudentController::class);
