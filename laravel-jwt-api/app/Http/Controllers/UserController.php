@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\UserStorRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -23,9 +25,14 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStorRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $validated['password'] = bcrypt($validated['password']);
+
+        $user = User::create($validated);
+
+        return response()->json(['status' => Response::HTTP_CREATED, 'message' => 'User created successfully', 'data' => $user], Response::HTTP_CREATED);
     }
 
     public function login(Request $request)
