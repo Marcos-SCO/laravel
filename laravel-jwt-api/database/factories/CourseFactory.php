@@ -28,7 +28,7 @@ class CourseFactory extends Factory
             },
             'title' => $this->faker->title(),
             'description' => $this->faker->text(300),
-            'total_videos' => $this->faker->randomDigitNotZero(3, 50),
+            'total_videos' => $this->faker->randomDigitNotZero(),
         ];
     }
 }
