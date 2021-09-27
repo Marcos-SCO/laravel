@@ -50,7 +50,9 @@ class UserController extends Controller
 
     public function profile()
     {
-        //
+        $userData = auth()->user();
+
+        return response()->json(['status' => Response::HTTP_OK, 'message' => 'User profile data', 'data' => $userData], Response::HTTP_OK);
     }
 
     /**

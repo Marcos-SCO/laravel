@@ -23,7 +23,7 @@ use \App\Http\Controllers\UserController;
 Route::post('/register', [UserController::class, 'store']);
 Route::post('/login', [UserController::class, 'login']);
 
-Route::group(['middleware' => ['api']], function () {
+Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/profile', [UserController::class, 'profile']);
     Route::delete('/logout', [UserController::class, 'destroy']);
     
