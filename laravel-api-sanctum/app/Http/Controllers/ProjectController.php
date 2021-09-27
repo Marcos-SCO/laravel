@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Project\ProjectStoreRequest;
+use App\Http\Resources\ProjectResource;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ProjectController extends Controller
 {
@@ -23,9 +26,18 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProjectStoreRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $studentId = auth()->user()->id;
+
+        $validated['student_id'] = $studentId;
+
+        Project::create($validated);
+
+        return (new ProjectResource(['status' => Response::HTTP_CREATED, 'message' => 'Project created!']))
+            ->response()
+            ->setStatusCode(Response::HTTP_CREATED);
     }
 
     /**
