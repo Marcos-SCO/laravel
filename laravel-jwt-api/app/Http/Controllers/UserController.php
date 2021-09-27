@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\User\UserLoginRequest;
 use App\Http\Requests\User\UserStoreRequest;
+use App\Models\Course;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
