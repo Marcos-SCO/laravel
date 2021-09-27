@@ -8,9 +8,8 @@
 </p>
 
 ## Used Dependencies
-- Sanctum
-  - composer require laravel/sanctum
-  - php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+  JWT auth package
+  - composer require tymon/jwt-auth
 
 ## About Laravel
 
