@@ -2,9 +2,9 @@
 
 @section('content')
 
-<h1>Login Page</h1>
 
-<div class="container my-5">
+<div class="container my-5 custom-login">
+  <h1>Login Page</h1>
   <div class="row align-item-center">
     <div class="form-container">
       <form action="">
@@ -16,7 +16,7 @@
           <label for="password"></label>
           <input type="password" name="password" id="password" class="form-control">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-light mt-4">Submit</button>
       </form>
     </div>
   </div>

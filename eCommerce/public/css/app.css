@@ -2,3 +2,7 @@
   max-width: 400px;
   margin: auto;
 }
+
+.custom-login {
+  min-height: 500px;
+}
