@@ -2,10 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Http\Helpers\DatabaseHelper;
+use App\Http\Helpers\Database\Table;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\DB;
 
 class ProductFactory extends Factory
 {
@@ -28,7 +27,7 @@ class ProductFactory extends Factory
             'price' => $this->faker->numberBetween(30, 1000),
             'description' => $this->faker->text(),
             'category' => $this->faker->title(),
-            'gallery' => 'https://loremflickr.com/320/240?random=' . DatabaseHelper::getLastTableId('products'),
+            'gallery' => 'https://loremflickr.com/320/240?random=' . Table::getLastId('products'),
         ];
     }
 }
