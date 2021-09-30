@@ -1,5 +1,12 @@
 @import 'login.scss';
 
+@mixin flex($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: wrap;
+}
+
 .carousel-inner {
     background: linear-gradient(0deg, rgba(60, 63, 67, 0.2), rgba(60, 63, 67, 0.2));
 }
@@ -17,8 +24,29 @@
 .carousel-item {
     // overflow: hidden;
 
-    img {
-        height: 400px;
-        object-fit: cover;
+    figure {
+
+        img {
+            height: 400px;
+            object-fit: cover;
+        }
+    }
+}
+
+.trending {
+    @include flex(center, center);
+    
+    .item {
+        max-width: 200px;
+        margin: 0 .5rem;
+
+        figcaption {
+          min-height: 120px;
+          padding: .5rem 1rem 0;
+        }
+    }
+
+    .trendImage {
+        height: 200px
     }
 }

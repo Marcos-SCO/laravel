@@ -32,6 +32,19 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+
+  <div class="trading-wrapper">
+    <h3>Trending products</h3>
+
+    <div class="trending items">
+      @foreach ($trending as $trend)
+      <figure class="item">
+        <img src="https://picsum.photos/300/300?random={{$trend->gallery}}" class="img-fluid trendImage" alt="{{$trend->name}}">
+        <figcaption><h3>{{$trend->name}}</h3></figcaption>
+      </figure>
+      @endforeach
+    </div>
+  </div>
 </div>
 
 @endSection

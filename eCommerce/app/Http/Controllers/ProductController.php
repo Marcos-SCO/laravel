@@ -14,8 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::all();
-        return view('product', ['title' => 'Products', 'products' => $data]);
+        $data = Product::limit(5)->get();
+        $trending = Product::skip(5)->take(5)->get();
+        
+        return view('product', ['title' => 'Products', 'products' => $data, 'trending' => $trending]);
     }
 
     /**
