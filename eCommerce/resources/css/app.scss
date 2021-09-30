@@ -1,1 +1,24 @@
 @import 'login.scss';
+
+.carousel-inner {
+    background: linear-gradient(0deg, rgba(60, 63, 67, 0.2), rgba(60, 63, 67, 0.2));
+}
+
+.carousel-indicators {
+    margin: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, rgb(60 63 67 / 43%), rgba(60, 63, 67, 0.2))
+}
+
+.carousel-caption {
+    background: linear-gradient(0deg, rgb(60 63 67 / 43%), rgba(60, 63, 67, 0.2))
+}
+
+.carousel-item {
+    // overflow: hidden;
+
+    img {
+        height: 400px;
+        object-fit: cover;
+    }
+}

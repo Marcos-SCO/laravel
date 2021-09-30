@@ -6,3 +6,23 @@
 .custom-login {
   min-height: 500px;
 }
+
+.carousel-inner {
+  background: linear-gradient(0deg, rgba(60, 63, 67, 0.2), rgba(60, 63, 67, 0.2));
+}
+
+.carousel-indicators {
+  margin: 0;
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(60, 63, 67, 0.43), rgba(60, 63, 67, 0.2));
+}
+
+.carousel-caption {
+  background: linear-gradient(0deg, rgba(60, 63, 67, 0.43), rgba(60, 63, 67, 0.2));
+}
+
+.carousel-item img {
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}

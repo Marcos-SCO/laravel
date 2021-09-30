@@ -27,7 +27,8 @@ class ProductFactory extends Factory
             'price' => $this->faker->numberBetween(30, 1000),
             'description' => $this->faker->text(),
             'category' => $this->faker->title(),
-            'gallery' => 'https://loremflickr.com/320/240?random=' . Table::getLastId('products'),
+            // 'gallery' => 'https://loremflickr.com/320/240?random=' . Table::getLastId('products'),
+            'gallery' => Table::getLastId('products'),
         ];
     }
 }
