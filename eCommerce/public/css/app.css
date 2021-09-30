@@ -37,10 +37,17 @@
   max-width: 200px;
   margin: 0 0.5rem;
 }
+@media (max-width: 432px) {
+  .trending .item {
+    width: 115px;
+  }
+}
+@media (min-width: 432px) {
+  .trending .item .trendImage {
+    height: 200px;
+  }
+}
 .trending .item figcaption {
   min-height: 120px;
   padding: 0.5rem 1rem 0;
-}
-.trending .trendImage {
-  height: 200px;
 }

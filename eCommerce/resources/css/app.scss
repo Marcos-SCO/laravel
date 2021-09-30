@@ -35,18 +35,26 @@
 
 .trending {
     @include flex(center, center);
-    
+
     .item {
+
+        @media (max-width:432px) {
+            width: 115px;
+        }
+
         max-width: 200px;
         margin: 0 .5rem;
 
+        .trendImage {
+            @media (min-width:432px) {
+                height: 200px
+            }
+        }
+
         figcaption {
-          min-height: 120px;
-          padding: .5rem 1rem 0;
+            min-height: 120px;
+            padding: .5rem 1rem 0;
         }
     }
 
-    .trendImage {
-        height: 200px
-    }
 }
