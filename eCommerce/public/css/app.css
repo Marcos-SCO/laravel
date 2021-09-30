@@ -37,6 +37,10 @@
   max-width: 200px;
   margin: 0 0.5rem;
 }
+.trending .item a {
+  text-decoration: none;
+  color: #000;
+}
 @media (max-width: 432px) {
   .trending .item {
     width: 115px;
@@ -50,4 +54,9 @@
 .trending .item figcaption {
   min-height: 120px;
   padding: 0.5rem 1rem 0;
+}
+
+.product-detail button {
+  max-width: 130px;
+  display: block;
 }

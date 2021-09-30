@@ -39,8 +39,10 @@
     <div class="trending items">
       @foreach ($trending as $trend)
       <figure class="item">
-        <img src="https://picsum.photos/300/300?random={{$trend->gallery}}" class="img-fluid trendImage" alt="{{$trend->name}}">
-        <figcaption><h3>{{$trend->name}}</h3></figcaption>
+        <a href="{{route('productDetail', ['id' => $trend->id])}}">
+          <img src="https://picsum.photos/300/300?random={{$trend->gallery}}" class="img-fluid trendImage" alt="{{$trend->name}}">
+          <figcaption><h3>{{$trend->name}}</h3></figcaption>
+        </a>
       </figure>
       @endforeach
     </div>

@@ -16,7 +16,7 @@ class ProductController extends Controller
     {
         $data = Product::limit(5)->get();
         $trending = Product::skip(5)->take(5)->get();
-        
+
         return view('product', ['title' => 'Products', 'products' => $data, 'trending' => $trending]);
     }
 
@@ -49,7 +49,12 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Product::findOrFail($id);
+
+        return view('detail', [
+            'title' => $data->name . ' - Product detail',
+            'product' => $data,
+        ]);
     }
 
     /**

@@ -37,6 +37,10 @@
     @include flex(center, center);
 
     .item {
+        a {
+            text-decoration: none;
+            color: #000
+        }
 
         @media (max-width:432px) {
             width: 115px;
@@ -57,4 +61,12 @@
         }
     }
 
+}
+
+// ------------------ Product details ---------------------
+.product-detail {
+    button {
+        max-width: 130px;
+        display: block;
+    }
 }
