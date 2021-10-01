@@ -118,6 +118,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        session('user');
+        session()->forget('user');
+        return redirect('/login');
     }
 }

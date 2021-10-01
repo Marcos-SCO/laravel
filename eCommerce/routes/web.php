@@ -26,4 +26,5 @@ Route::post('/add_to_cart', [ProductController::class, 'addToCart'])->name('addT
 Route::get('/login',  function () { 
     return view('login');
 });
+Route::get('/logout',  [UserController::class, 'destroy']);
 Route::post('/login', [UserController::class, 'login'])->name('login');
