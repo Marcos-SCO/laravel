@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -68,6 +69,22 @@ class ProductController extends Controller
             'searchedKey' => $searchedKey,
             'products' => $data,
         ]);
+    }
+
+    function addToCart(Request $request)
+    {
+        session();
+        $sessionUser = session()->has('user');
+
+        if (!$sessionUser) return redirect('/login');
+
+        $validated = $request->validate(['product_id' => 'required|int']);
+
+        $userId = session()->get('user')->id;
+        $cartData = ['user_id' => $userId, 'product_id' => $validated['product_id']];
+
+        Cart::create($cartData);
+        return redirect('/');
     }
 
     /**
