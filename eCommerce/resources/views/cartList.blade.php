@@ -5,8 +5,11 @@
 <div class="custom-product">
   <div class="trading-wrapper">
 
-    <div class="cart container-fluid">
-      <h3 class="my-5 text-center">Your cart list</h3>
+    <div class="cart container-fluid ">
+      <div class="d-flex align-items-center justify-content-center px-4">
+        <h3 class="my-5 pe-3 text-center">Your cart list</h3>
+        <a href="/orderNow" class="order-btn btn btn-success">Order Now</a>
+      </div>
       @foreach ($products as $product)
       <div class="item">
         <figure>

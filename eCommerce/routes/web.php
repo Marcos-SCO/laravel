@@ -24,6 +24,7 @@ Route::get('/search', [ProductController::class, 'search'])->name('searchProduct
 Route::get('/cartList', [ProductController::class, 'cartList'])->name('cartList');
 Route::post('/addToCart', [ProductController::class, 'addToCart'])->name('addToCart');
 Route::post('/removeFromCart/{id}', [ProductController::class, 'removeProduct'])->name('removeProduct');
+Route::get('/orderNow', [ProductController::class, 'orderNow']);
 
 Route::get('/login',  function () {
     return view('login');

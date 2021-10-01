@@ -72,6 +72,10 @@
   display: block;
 }
 
+.cart .order-btn {
+  display: block;
+  max-width: 127px;
+}
 .cart .item {
   display: flex;
   justify-content: space-around;

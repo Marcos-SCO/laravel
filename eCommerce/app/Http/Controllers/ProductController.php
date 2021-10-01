@@ -111,7 +111,21 @@ class ProductController extends Controller
             // ->get();
             ->paginate(5);
 
-            return view('cartList', ['title' => 'Your cart list', 'products' => $products]);
+        return view('cartList', ['title' => 'Your cart list', 'products' => $products]);
+    }
+
+    public function orderNow()
+    {
+        $userSession = session('user');
+        if (!$userSession) return redirect('/login');
+
+        $total = DB::table('cart')
+            ->join('products', 'cart.product_id', '=', 'products.id')
+            ->where('cart.user_id', $userSession->id)
+            ->sum('products.price');
+        // ->get();
+
+        return view('orderNow', ['title' => 'Total', 'total' => $total]);
     }
 
     /**
@@ -147,7 +161,7 @@ class ProductController extends Controller
     {
         //
     }
-    
+
     public function removeProduct($id)
     {
         Cart::destroy($id);

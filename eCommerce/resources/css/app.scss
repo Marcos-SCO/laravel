@@ -76,6 +76,11 @@
 
 // ------------------ Cart details ---------------------
 .cart {
+    .order-btn {
+        display: block;
+        max-width: 127px;
+    }
+
     .item {
         @include flex(space-around, center, nowrap);
 
