@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Helpers\Redirect;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -73,10 +74,8 @@ class ProductController extends Controller
 
     function addToCart(Request $request)
     {
-        session();
-        $sessionUser = session()->has('user');
-
-        if (!$sessionUser) return redirect('/login');
+        $userSession = session('user');
+        if (!$userSession) return redirect('/login');
 
         $validated = $request->validate(['product_id' => 'required|int']);
 
@@ -85,6 +84,17 @@ class ProductController extends Controller
 
         Cart::create($cartData);
         return redirect('/');
+    }
+
+    public static function cartItems()
+    {
+        $userSession = session('user');
+        if (!$userSession) return 0;
+
+        $sessionUserId = $userSession->id;
+        // $sessionUserId = session()->get('user')->id;
+
+        return Cart::where('user_id', $sessionUserId)->count();
     }
 
     /**
