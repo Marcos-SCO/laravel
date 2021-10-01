@@ -41,7 +41,7 @@
 .trending {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
 }
 .trending .item {
@@ -70,4 +70,34 @@
 .product-detail button {
   max-width: 130px;
   display: block;
+}
+
+.cart .item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 3rem;
+}
+@media (max-width: 440px) {
+  .cart .item {
+    text-align: center;
+    flex-direction: column;
+  }
+}
+@media (min-width: 440px) {
+  .cart .product-description,
+.cart .product-remove {
+    flex-basis: 200px;
+  }
+}
+.cart figure {
+  width: 100%;
+}
+@media (min-width: 440px) {
+  .cart figure {
+    padding: 1rem;
+    flex-basis: 250px;
+  }
 }

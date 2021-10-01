@@ -32,7 +32,7 @@ $totalCartItems = App\Http\Controllers\ProductController::cartItems();
         @else
         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
         @endif
-        <li class="nav-item"><a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cart ({{$totalCartItems}})</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('cartList')}}">Cart ({{$totalCartItems}})</a></li>
       </ul>
     </div>
   </div>

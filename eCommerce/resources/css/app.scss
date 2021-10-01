@@ -2,11 +2,11 @@
 @import 'search-box.scss';
 @import 'pagination.scss';
 
-@mixin flex($justify, $align) {
+@mixin flex($justify, $align, $wrap: wrap) {
     display: flex;
     justify-content: $justify;
     align-items: $align;
-    flex-wrap: wrap;
+    flex-wrap: $wrap;
 }
 
 .carousel-inner {
@@ -36,7 +36,7 @@
 }
 
 .trending {
-    @include flex(center, center);
+    @include flex(center, baseline);
 
     .item {
         a {
@@ -70,5 +70,38 @@
     button {
         max-width: 130px;
         display: block;
+    }
+}
+
+
+// ------------------ Cart details ---------------------
+.cart {
+    .item {
+        @include flex(space-around, center, nowrap);
+
+        @media (max-width: 440px) {
+            text-align: center;
+            flex-direction: column;
+        }
+
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 3rem;
+    }
+
+    .product-description,
+    .product-remove {
+        @media (min-width:440px) {
+            flex-basis: 200px;
+        }
+    }
+
+    figure {
+        width: 100%;
+
+        @media (min-width:440px) {
+            padding: 1rem;
+            flex-basis: 250px;
+            // height: 100px;
+        }
     }
 }
