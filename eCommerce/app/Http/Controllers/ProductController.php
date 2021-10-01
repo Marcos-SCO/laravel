@@ -57,6 +57,19 @@ class ProductController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $searchedKey = $request->input('search');
+        $data = Product::where('name', 'like',  '%' . $searchedKey . '%')->paginate(5);
+        // $data = Product::where('name', 'like',  '%' . $searchedKey . '%')->get();
+
+        return view('productSearch', [
+            'title' => 'Results for ' . $searchedKey,
+            'searchedKey' => $searchedKey,
+            'products' => $data,
+        ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

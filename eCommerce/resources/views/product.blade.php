@@ -34,8 +34,8 @@
   </div>
 
   <div class="trading-wrapper">
-    <h3>Trending products</h3>
-
+    
+    <h3 class="text-center my-5">Trending products</h3>
     <div class="trending items">
       @foreach ($trending as $trend)
       <figure class="item">

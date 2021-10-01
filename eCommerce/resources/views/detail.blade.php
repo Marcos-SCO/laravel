@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container my-5">
   <figure class="row product-detail">
     <div class="col-sm-6">
       <img src="https://picsum.photos/300/300?random={{$product->gallery}}" alt="{{$product->name}}" class="detail-img">
@@ -10,7 +10,7 @@
     <figcaption class="col-sm-6">
       <a href="/">Go back</a>
       <h2>{{$product->name}}</h2>
-      <h3>Price: {{$product->price}}</h3>
+      <h3>Price: ${{$product->price}}</h3>
       <p>
       <h4>Details:</h4> {{$product->description}}</p>
       <h5>Category: {{$product->category}}</h5>

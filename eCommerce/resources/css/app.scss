@@ -1,4 +1,6 @@
 @import 'login.scss';
+@import 'search-box.scss';
+@import 'pagination.scss';
 
 @mixin flex($justify, $align) {
     display: flex;

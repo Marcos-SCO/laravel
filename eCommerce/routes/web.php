@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/detail/{id}', [ProductController::class, 'show'])->name('productDetail');
+Route::get('/search', [ProductController::class, 'search'])->name('searchProduct');
 
 Route::get('/login',  function () { 
     return view('login');

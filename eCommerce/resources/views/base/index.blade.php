@@ -15,12 +15,12 @@
 </head>
 
 <body>
-  {{View::make('base/header')}}
+  @include('base/header')
 
   @yield('content')
 
-  {{View::make('base/footer')}}
-
+  @include('base/footer')
+  
   <!-- Bootstrap js cdn -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
   <!-- App -->

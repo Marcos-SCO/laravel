@@ -7,6 +7,17 @@
   min-height: 500px;
 }
 
+@media (min-width: 976px) {
+  .search-box {
+    min-width: 500px;
+  }
+}
+
+.pagination {
+  justify-content: center;
+  margin: 4rem;
+}
+
 .carousel-inner {
   background: linear-gradient(0deg, rgba(60, 63, 67, 0.2), rgba(60, 63, 67, 0.2));
 }
