@@ -25,5 +25,16 @@ $ npm i
 
 ## Change Bootstrap 4 to 5 version
 ```shell
-$ npm install bootstrap@latest bootstrap-icons @popperjs/core --save-dev
+$ npm install resolve-url-loader@^4.0.0 --save-dev --legacy-peer-deps
+
+$ npm install bootstrap@latest @popperjs/core --save-dev
+```
+
+## install Vue UI
+```shell
+$ php artisan ui vue
+
+$ npm i vue@next @vue/compiler-sfc vue-loader@next
+
+$ npm install && npm run dev
 ```
