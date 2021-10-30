@@ -6,18 +6,19 @@
 
 ## Commands used in Tutorial
 
-### Laravel UI for Vue and bootstrap
-- Install
+# Laravel UI for Vue and bootstrap
+
+## Install
 ```shell
 $ composer require laravel/ui
 ```
 
-- Generate login and registration scaffolding
+## Generate login and registration scaffolding
 ```shell
 $ php artisan ui bootstrap --auth
 ```
 
-- Install packages from npm
+## Install packages from npm
 ```shell
 $ npm i
 ```
