@@ -22,3 +22,8 @@ $ php artisan ui bootstrap --auth
 ```shell
 $ npm i
 ```
+
+## Change Bootstrap 4 to 5 version
+```shell
+$ npm install bootstrap@latest bootstrap-icons @popperjs/core --save-dev
+```
