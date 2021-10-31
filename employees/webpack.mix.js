@@ -11,6 +11,13 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js(['resources/js/app.js'], 'public/js',)
     .vue()
+    .css('resources/css/sb-admin.css', 'public/css')
     .sass('resources/sass/app.scss', 'public/css');
+
+mix.combine([
+    'resources/js/sbBundle/jquery.min.js',
+    'resources/js/sbBundle/jquery.easing.min.js',
+    'resources/js/sbBundle/sb-admin.min.js'
+], 'public/js/sbBundle.js');
