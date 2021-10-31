@@ -55,7 +55,7 @@
                         @else
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->first_name }}
                             </a>
 
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -76,8 +76,8 @@
             </div>
         </nav>
 
-        <example-component></example-component>
-        
+        <!-- <example-component></example-component> -->
+
         <main class="py-4">
             @yield('content')
         </main>

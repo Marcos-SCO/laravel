@@ -8,6 +8,11 @@
 
 # Laravel UI for Vue and bootstrap
 
+## Database 
+```shell
+$ CREATE DATABASE db_laravel_employees_vuejs character set utf8mb4 collate utf8mb4_unicode_ci;
+```
+
 ## Install
 ```shell
 $ composer require laravel/ui
