@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('users', App\Http\Controllers\Backend\UserController::class)
+    ->names([
+        'index' => 'dashboard.users.index',
+        'create' => 'dashboard.users.create',
+    ]);

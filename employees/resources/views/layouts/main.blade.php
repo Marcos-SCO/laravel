@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Dashboard</title>
+  <title>{{$title ?? 'Dashboard'}}</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
@@ -85,7 +85,7 @@
         <div id="userManagementCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-            <a class="collapse-item" href="buttons.html">User</a>
+            <a class="collapse-item" href="{{route('dashboard.users.index')}}">User</a>
             <a class="collapse-item" href="cards.html">Role</a>
             <a class="collapse-item" href="cards.html">Permission</a>
           </div>
@@ -176,16 +176,7 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-          </div>
-          <div class="row">
             @yield('content')
-          </div>
-
         </div>
         <!-- /.container-fluid -->
 
