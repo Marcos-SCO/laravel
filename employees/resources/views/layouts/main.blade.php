@@ -46,11 +46,11 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
-      
+
       <!-- <div class="sidebar-heading">
         Interface
       </div> -->
-      
+
       <hr class="sidebar-divider">
 
       <li class="nav-item">
@@ -75,7 +75,7 @@
           </div>
         </div>
       </li>
-      
+
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#userManagementCollapse" aria-expanded="true" aria-controls="userManagementCollapse">
@@ -154,10 +154,17 @@
                   <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                   Activity Log
                 </a> -->
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                <!-- <div class="dropdown-divider"></div> -->
+
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                  <!-- <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout -->
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
+                  {{ __('Logout') }}
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                  </form>
                 </a>
               </div>
             </li>
