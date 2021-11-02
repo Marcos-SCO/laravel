@@ -8,8 +8,14 @@
   </div>
 
   <div class="card m-auto">
+    @if (session()->has('messages'))
+    <div class="alert {{session('messages')['alertClass'] ?? 'alert-success'}}" role="alert">
+      {{ session('messages')['text'] }}
+    </div>
+    @endif
+
     <div class="card-header align-self-end">
-      <a href="{{route('dashboard.users.create')}}">Create</a>
+      <a href="{{route('dashboard.user.create')}}">{{Icons::render('userPlus')}} Create</a>
     </div>
     <div class="card-body">
       <table class="table">
@@ -28,7 +34,20 @@
             <td class="text-capitalize">{{$user->username}}</td>
             <td>{{$user->email}}</td>
             <td>{{$user->email}}</td>
-            <td>Edit/Delete</td>
+            <td>
+              <a href="{{route('dashboard.user.edit', $user->id)}}" class="btn btn-success">
+                {{Icons::render('edit')}}
+                Edit
+              </a>
+              <form method="post" action="{{route('dashboard.user.delete', $user->id)}}" class="d-inline" data-js="dashboard-delete-user-{{$user->id}}">
+                @csrf
+                @method('delete')
+                <button href="{{route('dashboard.user.delete', $user->id)}}" class="btn btn-danger">
+                  {{Icons::render('trash')}}
+                  Delete
+                </button>
+              </form>
+            </td>
           </tr>
           @endforeach
         </tbody>

@@ -21,8 +21,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('users', App\Http\Controllers\Backend\UserController::class)
+Route::resource('dashboard/users', App\Http\Controllers\Backend\UserController::class)
     ->names([
-        'index' => 'dashboard.users.index',
-        'create' => 'dashboard.users.create',
+        'index' => 'dashboard.user.index',
+        'create' => 'dashboard.user.create',
+        'store' => 'dashboard.user.store',
+        'edit' => 'dashboard.user.edit',
+        'update' => 'dashboard.user.update',
+        'destroy' => 'dashboard.user.delete',
     ]);

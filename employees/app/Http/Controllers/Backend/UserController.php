@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\UserSend;
 use App\Models\User;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -39,9 +42,23 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserSend $request)
     {
-        //
+        $validated = $request->validated();
+        $validated['password'] = Hash::make($validated['password']);
+
+        $emailAlreadyTaken = User::where('email', '=', $validated['email'])->exists();
+
+        if ($emailAlreadyTaken)
+            return back()->withErrors(['email' => ['Email already taken!']])->withInput();
+
+        User::create($validated);
+
+        return redirect()
+            ->route('dashboard.user.index')
+            ->with('messages', [
+                'text' => 'User successfully registered!'
+            ]);
     }
 
     /**
@@ -64,7 +81,11 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-        return view('users.edit', compact('user'));
+
+        return view('users.edit', [
+            'user' => $user,
+            'title' => 'Edit user',
+        ]);
     }
 
     /**
@@ -74,10 +95,26 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserSend $request, User $user)
     {
         //
+        $validated = $request->validated();
+        $validated['password'] = Hash::make($validated['password']);
+
+        $emailAlreadyTaken = User::where('email', '=', $validated['email'])->where('id', '!=', $user->id)->exists();
+
+        if ($emailAlreadyTaken)
+            return back()->withErrors(['email' => ['Email already taken!']])->withInput();
+
+        $user->update($validated);
+
+        return redirect()
+            ->route('dashboard.user.index')
+            ->with('messages', [
+                'text' => 'User updated successfully!'
+            ]);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -85,8 +122,27 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $idToDeleteIsTheSameLogged =
+            Auth()->user()->id === $user->id;
+
+        if ($idToDeleteIsTheSameLogged) {
+            return redirect()->route('dashboard.user.index')
+                ->with('messages', [
+                    'text' => 'You can\'t delete yourself!',
+                    'alertClass' => 'alert-danger'
+                ]);
+        }
+
+        $user->delete();
+
+        return redirect()->route('dashboard.user.index')
+            ->with(
+                'messages',
+                [
+                    'text' => 'User deleted!'
+                ]
+            );
     }
 }
