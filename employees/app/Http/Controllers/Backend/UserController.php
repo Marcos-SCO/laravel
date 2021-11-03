@@ -16,9 +16,15 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
+        $inputSearch = $request->get('search');
+        $users =
+            $inputSearch ?
+            User::where('username', 'like', '%' . $inputSearch . '%')
+            ->orWhere('email', 'like', '%' . $inputSearch . '%')->paginate(1)
+            : User::orderBy('id', 'DESC')->paginate(1);
+
         return view('users.index', [
             'title' => 'User Dashboard',
             'users' => $users,

@@ -14,8 +14,22 @@
     </div>
     @endif
 
-    <div class="card-header align-self-end">
-      <a href="{{route('dashboard.user.create')}}">{{Icons::render('userPlus')}} Create</a>
+    <div class="card-header d-flex">
+      <form class="input-group col-12 col-sm-6" method="get" action="{{route('dashboard.user.index')}}">
+        <div class="form-outline">
+          <input type="search" id="dashboard-search-user" class="form-control" name="search" data-js="dashboard-search-user" value="{{Request::get('search')}}" />
+          <label class="form-label" for="dashboard-search-user">Search</label>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </form>
+
+      <div class="col-12 col-sm-6 justify-self-end text-right">
+        <a href="{{route('dashboard.user.create')}}" class="btn btn-primary">{{Icons::render('userPlus')}} Create User</a>
+      </div>
     </div>
     <div class="card-body">
       <table class="table">
@@ -54,7 +68,9 @@
       </table>
     </div>
   </div>
-
+</div>
+<div class="row justify-content-center my-5">
+  {{ $users->links() }}
 </div>
 
 @endsection
