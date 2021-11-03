@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Dashboard;
+namespace App\Http\Requests\Dashboard\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserSend extends FormRequest
+class UserUpdate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class UserSend extends FormRequest
             'first_name' => 'string|required',
             'last_name' => 'string|required',
             'email' => 'string|required',
-            'password' => 'string|min:8|required',
+            // 'password' => 'string|min:8|required',
         ];
     }
 
