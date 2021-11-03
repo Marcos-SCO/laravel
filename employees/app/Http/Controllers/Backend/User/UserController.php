@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Backend\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\UserSend;
+use App\Http\Requests\Dashboard\User\UserCreate;
+use App\Http\Requests\Dashboard\User\UserUpdate;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
@@ -48,15 +49,15 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserSend $request)
+    public function store(UserCreate $request)
     {
         $validated = $request->validated();
         $validated['password'] = Hash::make($validated['password']);
 
-        $emailAlreadyTaken = User::where('email', '=', $validated['email'])->exists();
+        // $emailAlreadyTaken = User::where('email', '=', $validated['email'])->exists();
 
-        if ($emailAlreadyTaken)
-            return back()->withErrors(['email' => ['Email already taken!']])->withInput();
+        // if ($emailAlreadyTaken)
+        //     return back()->withErrors(['email' => ['Email already taken!']])->withInput();
 
         User::create($validated);
 
@@ -101,11 +102,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserSend $request, User $user)
+    public function update(UserUpdate $request, User $user)
     {
         //
         $validated = $request->validated();
-        $validated['password'] = Hash::make($validated['password']);
+        // $validated['password'] = Hash::make($validated['password']);
 
         $emailAlreadyTaken = User::where('email', '=', $validated['email'])->where('id', '!=', $user->id)->exists();
 

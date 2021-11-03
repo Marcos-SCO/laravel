@@ -56,7 +56,7 @@
               <form method="post" action="{{route('dashboard.user.delete', $user->id)}}" class="d-inline" data-js="dashboard-delete-user-{{$user->id}}">
                 @csrf
                 @method('delete')
-                <button href="{{route('dashboard.user.delete', $user->id)}}" class="btn btn-danger">
+                <button href="{{route('dashboard.user.delete', $user->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?')">
                   {{Icons::render('trash')}}
                   Delete
                 </button>
