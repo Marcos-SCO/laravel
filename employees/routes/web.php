@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::put('dashboard/users/{user}/password', [App\Http\Controllers\Backend\User\UserPassword::class, 'update'])->name('dashboard.user.change.password');
+
 Route::resource('dashboard/users', App\Http\Controllers\Backend\User\UserController::class)
 ->names([
     'index' => 'dashboard.user.index',
@@ -31,4 +33,14 @@ Route::resource('dashboard/users', App\Http\Controllers\Backend\User\UserControl
     'destroy' => 'dashboard.user.delete',
 ]);
 
-Route::put('dashboard/users/{user}/password', [App\Http\Controllers\Backend\User\UserPassword::class, 'update'])->name('dashboard.user.change.password');
+Route::resource('dashboard/countries', App\Http\Controllers\Backend\Country\CountryController::class)
+->names([
+    'index' => 'dashboard.country.index',
+    'create' => 'dashboard.country.create',
+    'store' => 'dashboard.country.store',
+    'edit' => 'dashboard.country.edit',
+    'update' => 'dashboard.country.update',
+    'destroy' => 'dashboard.country.delete',
+]);
+
+
