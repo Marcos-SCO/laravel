@@ -18,10 +18,9 @@ class CreateEmployeesTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('address');
-            // $table->foreignId('department_id')->references('id')->on('departments')->onDelete('cascade');
-            $table->foreignId('department_id')->constrained();
-            $table->foreignId('state_id')->constrained();
-            $table->foreignId('city_id')->constrained();
+            $table->foreignId('department_id')->references('id')->on('departments')->onDelete('cascade');
+            $table->foreignId('state_id')->references('id')->on('states')->onDelete('cascade');
+            $table->foreignId('city_id')->references('id')->on('cities')->onDelete('cascade');
             $table->char('zip_code');
             $table->date('birthdate')->nullable();
             $table->date('date_hired')->nullable();

@@ -69,7 +69,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Custom Components:</h6> -->
             <a class="collapse-item" href="{{route('dashboard.country.index')}}">Country</a>
-            <a class="collapse-item" href="cards.html">State</a>
+            <a class="collapse-item" href="{{route('dashboard.state.index')}}">State</a>
             <a class="collapse-item" href="cards.html">Department</a>
             <a class="collapse-item" href="cards.html">City</a>
           </div>
