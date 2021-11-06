@@ -71,7 +71,7 @@
             <a class="collapse-item" href="{{route('dashboard.country.index')}}">Country</a>
             <a class="collapse-item" href="{{route('dashboard.state.index')}}">State</a>
             <a class="collapse-item" href="cards.html">Department</a>
-            <a class="collapse-item" href="cards.html">City</a>
+            <a class="collapse-item" href="{{route('dashboard.city.index')}}">City</a>
           </div>
         </div>
       </li>

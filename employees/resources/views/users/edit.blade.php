@@ -10,7 +10,7 @@
   <div class="card col-12">
     <div class="card-header align-self-end">
       <p>Edit User</p>
-      <a href="{{route('dashboard.user.index')}}">
+      <a href="{{route('dashboard.user.index')}}" class="btn btn-primary">
         {{Icons::render('back')}}
         Back
       </a>

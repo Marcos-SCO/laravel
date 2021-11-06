@@ -4,13 +4,13 @@
 <div class="row">
 
   <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
-    <h1 class="h3 mb-0 text-gray-800">{{$state->name}}</h1>
+    <h1 class="h3 mb-0 text-gray-800">{{$city->name}}</h1>
   </div>
 
   <div class="card col-12">
     <div class="card-header align-self-end">
-      <p>Edit State</p>
-      <a href="{{route('dashboard.state.index')}}" class="btn btn-primary">
+      <p>Edit City</p>
+      <a href="{{route('dashboard.city.index')}}" class="btn btn-primary">
         {{Icons::render('back')}}
         Back
       </a>
@@ -20,30 +20,30 @@
         <div class="col-12">
 
           <div class="card">
-            <div class="card-header">{{ __('Update State') }}</div>
+            <div class="card-header">{{ __('Update City') }}</div>
 
-            <form method="POST" action="{{ route('dashboard.state.update', $state->id) }}" class="card-body">
+            <form method="POST" action="{{ route('dashboard.city.update', $city->id) }}" class="card-body">
               @csrf
               @method('PUT')
 
-              <!-- State code -->
+              <!-- City code -->
               <div class="mb-3 row">
-                <label for="countryId" class="col-md-4 col-form-label text-end">
-                  {{ __('Country') }} :
+                <label for="cityId" class="col-md-4 col-form-label text-end">
+                  {{ __('State') }} :
                 </label>
 
                 <div class="col-md-6">
 
-                  <select class="form-select form-control @error('country_id') is-invalid @enderror" aria-label="Default select example" id="countryId" name="country_id">
-                    <option value>Choose a Country</option>
-                    @foreach($countries as $country)
-                    <option {{ $country->id === $state->country_id ? "selected" : "" }} value="{{$country->id}}">
-                      {{$country->name}}
+                  <select class="form-select form-control @error('city_id') is-invalid @enderror" aria-label="Default select example" id="cityId" name="city_id">
+                    <option value>Choose a State</option>
+                    @foreach($states as $state)
+                    <option {{ $state->id === $city->state_id ? "selected" : "" }} value="{{$state->id}}">
+                      {{$state->name}}
                     </option>
                     @endforeach
                   </select>
 
-                  @error('country_id')
+                  @error('city_id')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                   </span>
@@ -51,14 +51,14 @@
                 </div>
               </div>
 
-              <!-- State name -->
+              <!-- City name -->
               <div class="mb-3 row">
-                <label for="stateName" class="col-md-4 col-form-label text-end">
-                  {{ __('State name') }} :
+                <label for="cityName" class="col-md-4 col-form-label text-end">
+                  {{ __('City name') }} :
                 </label>
 
                 <div class="col-md-6">
-                  <input id="stateName" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $state->name}}" autocomplete="name" autofocus>
+                  <input id="cityName" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $city->name}}" autocomplete="name" autofocus>
 
                   @error('name')
                   <span class="invalid-feedback" role="alert">
