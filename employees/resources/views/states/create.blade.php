@@ -36,7 +36,7 @@
                     <select class="form-select form-control @error('country_id') is-invalid @enderror" aria-label="Default select example" id="countryId" name="country_id">
                       <option value>Choose a Country</option>
                       @foreach($countries as $country)
-                      <option {{ old("country_id") === $country->id ? "selected" : "" }} value="{{$country->id}}">
+                      <option {{ old("country_id") == $country->id ? "selected" : "" }} value="{{$country->id}}">
                         {{$country->name}}
                       </option>
                       @endforeach
