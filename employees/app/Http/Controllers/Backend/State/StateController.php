@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Backend\State;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\State\StateStore;
-use App\Http\Requests\Dashboard\State\StateUpdate;
+use App\Http\Requests\Dashboard\State\StateSend;
 use App\Models\Country;
 use App\Models\State;
 use Illuminate\Http\Request;
@@ -51,7 +50,7 @@ class StateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StateStore $request)
+    public function store(StateSend $request)
     {
         $validated = $request->validated();
 
@@ -99,7 +98,7 @@ class StateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StateUpdate $request, State $state)
+    public function update(StateSend $request, State $state)
     {
         $validated = $request->validated();
 
