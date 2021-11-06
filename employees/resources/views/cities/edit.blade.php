@@ -28,13 +28,13 @@
 
               <!-- City code -->
               <div class="mb-3 row">
-                <label for="cityId" class="col-md-4 col-form-label text-end">
+                <label for="stateId" class="col-md-4 col-form-label text-end">
                   {{ __('State') }} :
                 </label>
 
                 <div class="col-md-6">
 
-                  <select class="form-select form-control @error('city_id') is-invalid @enderror" aria-label="Default select example" id="cityId" name="city_id">
+                  <select class="form-select form-control @error('state_id') is-invalid @enderror" aria-label="Default select example" id="stateId" name="state_id">
                     <option value>Choose a State</option>
                     @foreach($states as $state)
                     <option {{ $state->id === $city->state_id ? "selected" : "" }} value="{{$state->id}}">
@@ -43,7 +43,7 @@
                     @endforeach
                   </select>
 
-                  @error('city_id')
+                  @error('state_id')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                   </span>
