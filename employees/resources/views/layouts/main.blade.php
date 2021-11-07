@@ -70,7 +70,7 @@
             <!-- <h6 class="collapse-header">Custom Components:</h6> -->
             <a class="collapse-item" href="{{route('dashboard.country.index')}}">Country</a>
             <a class="collapse-item" href="{{route('dashboard.state.index')}}">State</a>
-            <a class="collapse-item" href="cards.html">Department</a>
+            <a class="collapse-item" href="{{route('dashboard.department.index')}}">Department</a>
             <a class="collapse-item" href="{{route('dashboard.city.index')}}">City</a>
           </div>
         </div>

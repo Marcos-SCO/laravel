@@ -63,4 +63,14 @@ Route::resource('dashboard/cities', App\Http\Controllers\Backend\City\CityContro
     'destroy' => 'dashboard.city.delete',
 ]);
 
+Route::resource('dashboard/departments', App\Http\Controllers\Backend\Department\DepartmentController::class)
+->names([
+    'index' => 'dashboard.department.index',
+    'create' => 'dashboard.department.create',
+    'store' => 'dashboard.department.store',
+    'edit' => 'dashboard.department.edit',
+    'update' => 'dashboard.department.update',
+    'destroy' => 'dashboard.department.delete',
+]);
+
 
