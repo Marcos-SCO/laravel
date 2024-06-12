@@ -1,2 +1,2 @@
 # laravel
-Repositório para projetos despretensiosos com o Framework Laravel
+Repository boilerplate for Laravel Framework
